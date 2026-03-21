@@ -1,33 +1,26 @@
-# skills workspace
+# Agent Skills Collection (务实型 AI 技能库)
 
-个人自用的 Agent + Skill 规则仓库，用于复杂技术任务的决策、实施与交付留痕。
+这是一个专为追求 **纯粹、极简、务实** 的高级开发者与系统准备的 AI Agent 技能仓库（Skills Repository）。
 
-## 1. 文件结构
-1.1 `AGENTS.md`：主规则（优先级、触发策略、输出策略、硬性约束）。  
-1.2 `.agents/skills/first-principles-engineering-assessment/SKILL.md`：复杂任务执行细则。  
-1.3 `.agents/skills/first-principles-engineering-assessment/references/checklists.md`：验证清单与交付模板。  
-1.4 `.agents/skills/first-principles-engineering-assessment/scripts/generate_delivery_report.py`：报告骨架生成脚本。  
+## 核心设计哲学 (The Philosophy)
 
-## 2. 调用策略（当前生效）
-2.1 默认不调用 Skill，先走最小可行流程。  
-2.2 命中关键词才调用 Skill：`评审`、`review`、`重构`、`最小可行实施计划`、`风险分级`、`验证证据`、`回滚方案`。  
-2.3 非复杂任务（问答/查询/文案）不调用 Skill。  
+在当下，各类 AI 编程助手（Copilot / Agent）极容易陷入“秀肌肉”般的过度设计陷阱中，导致项目迅速走向难以维护的深渊。本仓库的所有技能，均基于以下原则设计，致力于将大模型规训为一个**踏实干活**的高级工程师：
 
-## 3. 输出与交付基线
-3.1 默认输出：结论 + 关键过程日志 + 必要证据。  
-3.2 结构化输出使用三级编号：`1.` / `1.1` / `1.1.1`。  
-3.3 交付必须包含：改动摘要、验证证据、残余风险。  
+1. **零废话与少 Token**：拒绝无意义的赞美语和长篇代码复制。
+2. **永远的第一性原理**：以事实（Facts）为准绳，必须显式区分事实、假设与约束。
+3. **最小修改原则 (Minimal Diff)**：严厉禁止由于个人审美或格式化导致的“噪音”修改，格式必须与宿主文件冻结。
+4. **务实优先于优雅**：“当前阶段的最小可行解”拥有最高优先级。
 
-## 4. 快速使用
-4.1 开始任务前先看 `AGENTS.md`，确认是否命中 Skill 关键词。  
-4.2 需要留痕时用 `checklists.md` 记录验证结论。  
-4.3 交付阶段生成报告骨架：
+## 可用技能列表
 
-```bash
-./.agents/skills/first-principles-engineering-assessment/scripts/generate_delivery_report.py "任务标题" -o delivery_report.md --risk P1
-```
+* [`first-principles-engineering-assessment`](./skills-first-principles-engineering-assessment/)
+  * **作用**：第一性原理工程架构评估与实施。
+  * **解决痛点**：AI 不分青红皂白的盲目重构、缺乏验证证据的瞎改、不顾上下文大修代码格式。
 
-## 5. 最小自检
-5.1 脚本可执行且能生成文件。  
-5.2 文档编号连续且无跳号。  
-5.3 评审类任务能输出问题清单（按严重级）与风险边界。  
+## 适用对象
+
+* 使用具备外部 Skills 能力（如 Cline, RooCode, 或内部自研框架）的 Agent 玩家。
+* 对 AI “擅自全量重置文件”、“改行缩进毁掉 Git Blame” 等行为深恶痛绝的工程负责人。
+
+---
+*由真实项目填坑血泪提炼，致力于回归生产级软件的本质。*
